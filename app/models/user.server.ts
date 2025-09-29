@@ -93,7 +93,7 @@ export async function resetUserPassword({
   const hashedPassword = await bcrypt.hash(password, 10)
 
   // Delete any existing reset tokens for the user
-  prisma.passwordResetToken.deleteMany({
+  await prisma.passwordResetToken.deleteMany({
     where: {
       userId,
     },
